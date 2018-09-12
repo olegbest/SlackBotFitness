@@ -40,7 +40,7 @@ let onlineUsers = [];
 let userOffline = [];
 
 setInterval(function () {
-    userOffline = [];
+    onlineUsers = [];
     bot.channels.list().then((res) => {
         // console.log(res)
 
@@ -63,15 +63,16 @@ setInterval(function () {
                 })
             })
             setTimeout(function () {
-                console.log(onlineUsers);
+                // console.log(onlineUsers);
                 let userDo = onlineUsers[Math.floor(Math.random() * onlineUsers.length)];
                 let ex = info.main[Math.floor(Math.random() * info.main.length)];
                 if (userDo) {
-                    bot.chat.postMessage({
-                        token,
-                        channel: "CA3KJ6VBP",
-                        text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + ex.value + " раз"
-                    });
+                    console.log(userDo)
+                    // bot.chat.postMessage({
+                    //     token,
+                    //     channel: "CA3KJ6VBP",
+                    //     text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + ex.value + " раз"
+                    // });
                 }
                 // let offlineText = "";
                 // userOffline.forEach((us)=>{
@@ -87,4 +88,4 @@ setInterval(function () {
             }, 1000)
         })
     })
-}, 40 * 60 * 1000);
+},  2000);
