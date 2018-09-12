@@ -41,6 +41,7 @@ let userOffline = [];
 
 setInterval(function () {
     onlineUsers = [];
+    userOffline = [];
     bot.channels.list().then((res) => {
         // console.log(res)
 
