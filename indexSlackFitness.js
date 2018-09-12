@@ -69,11 +69,11 @@ setInterval(function () {
                 let ex = info.main[Math.floor(Math.random() * info.main.length)];
                 if (userDo) {
                     console.log(userDo)
-                    // bot.chat.postMessage({
-                    //     token,
-                    //     channel: "CA3KJ6VBP",
-                    //     text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + ex.value + " раз"
-                    // });
+                    bot.chat.postMessage({
+                        token,
+                        channel: "CA3KJ6VBP",
+                        text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + ex.value + " раз"
+                    });
                 }
                 // let offlineText = "";
                 // userOffline.forEach((us)=>{
