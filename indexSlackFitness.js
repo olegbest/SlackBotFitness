@@ -1,40 +1,8 @@
-// var SlackBot = require('slackbots');
-//
-//
-// // create a bot
-// var bot = new SlackBot({
-//     token: 'xoxb-343426990707-433422170887-galBx6XB0WurQLz7LZUkl3Pa', // Add a bot https://my.slack.com/services/new/bot and put the token
-//     name: 'Fitness'
-// });
-//
-//
-// bot.on('start', function () {
-//     // more information about additional params https://api.slack.com/methods/chat.postMessage
-//     var params = {
-//         icon_emoji: ':cat:'
-//     };
-//
-//     let users = bot.getUsers();
-//     console.log(users._value.members)
-//
-//     // bot.postMessageToChannel('random', 'meow!', params, (res) => {
-//     //
-//     // });
-// });
-//
-// bot.on('error', (err) => {
-//     console.log(err)
-// });
-//
-// bot.on('message', function(data) {
-//
-//     console.log(data);
-// });
-
+const fs = require("fs");
 const Slack = require('slack')
 const token = "xoxb-343426990707-433422170887-galBx6XB0WurQLz7LZUkl3Pa";
 const bot = new Slack({token});
-const info = require('./info');
+let info = require('./info');
 
 let onlineUsers = [];
 let userOffline = [];
@@ -90,3 +58,14 @@ setInterval(function () {
         })
     })
 }, 40 * 60 * 1000);
+
+setInterval(() => {
+    let file_info = JSON.parse(fs.readFileSync("./info.json", "utf8"));
+    console.log(file_info);
+    file_info.main.forEach((el) => {
+        el.value++;
+    });
+
+    fs.writeFileSync("./info.json", JSON.stringify(file_info));
+    info = require('./info');
+}, 12 * 60 * 60 * 1000)

@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fs": "0.0.1-security",
     "slack": "^11.0.1",
     "slackbots": "^1.1.0"
   }
