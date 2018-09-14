@@ -1,16 +1,16 @@
 {
   "main": [
     {
-      "name": "Отжиммания :muscle:",
-      "value": 10
+      "name": "Отжимания :muscle:",
+      "value": 11
     },
     {
       "name": "Приседания :smiley:",
-      "value": 10
+      "value": 11
     },
     {
       "name": "Прыжки :ok_hand:",
-      "value": 5
+      "value": 6
     }
   ]
 }
