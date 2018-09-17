@@ -32,7 +32,7 @@ setInterval(async function () {
         })
         setTimeout(function () {
             // console.log(onlineUsers);
-            // let userDo = onlineUsers[Math.floor(Math.random() * onlineUsers.length)];
+            let userDo = onlineUsers[Math.floor(Math.random() * onlineUsers.length)];
             let ex = info.main[Math.floor(Math.random() * info.main.length)];
             console.log(ex)
             if (userDo) {
