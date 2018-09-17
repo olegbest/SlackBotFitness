@@ -10,7 +10,7 @@ let userOffline = [];
 setInterval(async function () {
     let info = require('./info');
     let date = new Date();
-    console.log(Date)
+    console.log(date)
     if (date.getHours() > 8 && date.getHours() < 20 && date.getDay() < 6) {
         onlineUsers = [];
         userOffline = [];
