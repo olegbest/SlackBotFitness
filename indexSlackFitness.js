@@ -10,6 +10,7 @@ let userOffline = [];
 setInterval(async function () {
     let info = require('./info');
     let date = new Date();
+    console.log(Date)
     if (date.getHours() > 8 && date.getHours() < 20 && date.getDay() < 6) {
         onlineUsers = [];
         userOffline = [];
@@ -36,12 +37,12 @@ setInterval(async function () {
             let ex = info.main[Math.floor(Math.random() * info.main.length)];
             console.log(ex)
             if (userDo) {
-                console.log(userDo)
-                bot.chat.postMessage({
-                    token,
-                    channel: "CA3KJ6VBP",
-                    text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + ex.value + " раз"
-                });
+                // console.log(userDo)
+                // bot.chat.postMessage({
+                //     token,
+                //     channel: "CA3KJ6VBP",
+                //     text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + ex.value + " раз"
+                // });
             }
             // let offlineText = "";
             // userOffline.forEach((us)=>{
@@ -57,7 +58,7 @@ setInterval(async function () {
         }, 1000)
 
     }
-}, 40 * 60 * 1000);
+}, 5000);
 
 setInterval(() => {
     let date = new Date();
