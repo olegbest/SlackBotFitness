@@ -10,6 +10,7 @@ let userOffline = [];
 setInterval(async function () {
 
     let date = new Date();
+    console.log(date);
     if (date.getHours() > 5 && date.getHours() < 17 && date.getDay() < 6) {
         onlineUsers = [];
         userOffline = [];
@@ -37,11 +38,11 @@ setInterval(async function () {
             console.log(ex)
             if (userDo) {
                 console.log(userDo)
-                bot.chat.postMessage({
-                    token,
-                    channel: "CA3KJ6VBP",
-                    text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + ex.value + " раз"
-                });
+                // bot.chat.postMessage({
+                //     token,
+                //     channel: "CA3KJ6VBP",
+                //     text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + ex.value + " раз"
+                // });
             }
             // let offlineText = "";
             // userOffline.forEach((us)=>{
@@ -57,7 +58,7 @@ setInterval(async function () {
         }, 1000)
 
     }
-}, 40 * 60 * 1000);
+}, 5000);
 
 setInterval(() => {
     let date = new Date();
