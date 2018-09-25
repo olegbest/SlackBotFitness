@@ -12,7 +12,7 @@ setInterval(async function () {
     let date = new Date();
     let hour = date.getUTCHours() + 3;
     console.log(hour);
-    if (hour > 8 && hour < 20 && date.getDay() < 6) {
+    if (hour > 10 && hour < 19 && date.getDay() < 6) {
         onlineUsers = [];
         userOffline = [];
         let channels = await bot.channels.list();
@@ -20,10 +20,12 @@ setInterval(async function () {
         let users = await bot.conversations.members({token: token, channel: 'CA3KJ6VBP'});
         // console.log(users);
 
-        users.members.forEach(async (user) => {
-            let userPre = await bot.users.getPresence({token, user: user.id});
-            // console.log(user.name);
-            // console.log(userPre);
+        users.members.forEach(async (userGroup) => {
+            let user = await bot.users.info({token, user: userGroup});
+            user = user.user;
+            let userPre = await bot.users.getPresence({token, user: userGroup});
+            console.log(user);
+            console.log(userPre);
             if (!user.is_bot) {
                 if (userPre.presence === 'active') {
                     onlineUsers.push(user);
@@ -52,7 +54,7 @@ setInterval(async function () {
                 });
             }
 
-            if(userDo2) {
+            if (userDo2) {
                 await bot.chat.postMessage({
                     token,
                     channel: "CA3KJ6VBP",
