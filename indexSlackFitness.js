@@ -11,7 +11,7 @@ setInterval(async function () {
 
     let date = new Date();
     console.log(date);
-    if (date.getHours() > 5 && date.getHours() < 17 && date.getDay() < 6) {
+    if (date.getHours() > 8 && date.getHours() < 20 && date.getDay() < 6) {
         onlineUsers = [];
         userOffline = [];
         let channels = await bot.channels.list();
