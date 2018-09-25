@@ -9,8 +9,8 @@ let userOffline = [];
 
 setInterval(async function () {
 
-    let date = new Date();
-    let hour = date.getUTCHours() + 3;
+    let date = calcTime(3);
+    let hour = date.getHours();
     console.log(hour);
     if (hour > 10 && hour < 19 && date.getDay() < 6) {
         onlineUsers = [];
@@ -86,3 +86,20 @@ setInterval(() => {
         });
     }
 }, 24 * 60 * 60 * 1000)
+
+
+function calcTime(offset) {
+
+    // create Date object for current location
+    var d = new Date();
+
+    // convert to msec
+    // add local time zone offset
+    // get UTC time in msec
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+    // create new Date object for different city
+    // using supplied offset
+    var nd = new Date(utc + (3600000*offset));
+    return nd;
+}
