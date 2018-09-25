@@ -31,19 +31,34 @@ setInterval(async function () {
                 }
             }
         })
-        setTimeout(function () {
+
+        setTimeout(async function () {
             // console.log(onlineUsers);
-            let userDo = onlineUsers[Math.floor(Math.random() * onlineUsers.length)];
+            let randomNumber = Math.floor(Math.random() * onlineUsers.length);
+            let userDo = onlineUsers[randomNumber];
+            onlineUsers.splice(randomNumber, 1);
+            randomNumber = Math.floor(Math.random() * onlineUsers.length);
+            let userDo2 = onlineUsers[randomNumber];
             let ex = info.main[Math.floor(Math.random() * info.main.length)];
-            console.log(ex)
+            let ex2 = info.main[Math.floor(Math.random() * info.main.length)];
+            console.log(ex);
             if (userDo) {
                 console.log(userDo)
-                bot.chat.postMessage({
+                await bot.chat.postMessage({
                     token,
                     channel: "CA3KJ6VBP",
                     text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + ex.value + " раз"
                 });
             }
+
+            if(userDo2) {
+                await bot.chat.postMessage({
+                    token,
+                    channel: "CA3KJ6VBP",
+                    text: "<@" + userDo2.id + ">" + " выполняй " + ex2.name.toUpperCase() + " " + ex2.value + " раз"
+                });
+            }
+
             // let offlineText = "";
             // userOffline.forEach((us)=>{
             //     offlineText+= "@"+us.profile.real_name+"\n";
@@ -67,4 +82,4 @@ setInterval(() => {
             el.value++;
         });
     }
-}, 12 * 60 * 60 * 1000)
+}, 24 * 60 * 60 * 1000)
