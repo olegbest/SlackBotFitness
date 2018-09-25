@@ -10,13 +10,14 @@ let userOffline = [];
 setInterval(async function () {
 
     let date = new Date();
-    console.log(date);
-    if (date.getHours() > 8 && date.getHours() < 20 && date.getDay() < 6) {
+    let hour = date.getUTCHours() + 3;
+    console.log(hour);
+    if (hour > 8 && hour < 20 && date.getDay() < 6) {
         onlineUsers = [];
         userOffline = [];
         let channels = await bot.channels.list();
         // console.log(channels)
-        let users = await bot.users.list({token});
+        let users = await bot.conversations.members({token: token, channel: 'CA3KJ6VBP'});
         // console.log(users);
 
         users.members.forEach(async (user) => {
