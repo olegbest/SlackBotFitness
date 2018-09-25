@@ -24,8 +24,8 @@ setInterval(async function () {
             let user = await bot.users.info({token, user: userGroup});
             user = user.user;
             let userPre = await bot.users.getPresence({token, user: userGroup});
-            console.log(user);
-            console.log(userPre);
+            // console.log(user);
+            // console.log(userPre);
             if (!user.is_bot) {
                 if (userPre.presence === 'active') {
                     onlineUsers.push(user);
@@ -44,9 +44,9 @@ setInterval(async function () {
             let userDo2 = onlineUsers[randomNumber];
             let ex = info.main[Math.floor(Math.random() * info.main.length)];
             let ex2 = info.main[Math.floor(Math.random() * info.main.length)];
-            console.log(ex);
+            // console.log(ex);
             if (userDo) {
-                console.log(userDo)
+                // console.log(userDo)
                 await bot.chat.postMessage({
                     token,
                     channel: "CA3KJ6VBP",
