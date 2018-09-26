@@ -47,18 +47,20 @@ setInterval(async function () {
             // console.log(ex);
             if (userDo) {
                 // console.log(userDo)
+                let val = ex.value + randomInteger(0,5)
                 await bot.chat.postMessage({
                     token,
                     channel: "CA3KJ6VBP",
-                    text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + ex.value + " раз"
+                    text: "<@" + userDo.id + ">" + " выполняй " + ex.name.toUpperCase() + " " + val + " раз"
                 });
             }
 
             if (userDo2) {
+                let val = ex2.value + randomInteger(0,5)
                 await bot.chat.postMessage({
                     token,
                     channel: "CA3KJ6VBP",
-                    text: "<@" + userDo2.id + ">" + " выполняй " + ex2.name.toUpperCase() + " " + ex2.value + " раз"
+                    text: "<@" + userDo2.id + ">" + " выполняй " + ex2.name.toUpperCase() + " " + val + " раз"
                 });
             }
 
@@ -78,28 +80,34 @@ setInterval(async function () {
     }
 }, 40 * 60 * 1000);
 
-setInterval(() => {
-    let date = new Date();
-    if (date.getDay() < 6) {
-        info.main.forEach((el) => {
-            el.value++;
-        });
-    }
-}, 24 * 60 * 60 * 1000)
+// setInterval(() => {
+//     let date = new Date();
+//     if (date.getDay() < 6) {
+//         info.main.forEach((el) => {
+//             el.value++;
+//         });
+//     }
+// }, 24 * 60 * 60 * 1000)
 
 
 function calcTime(offset) {
 
     // create Date object for current location
-    var d = new Date();
+    let d = new Date();
 
     // convert to msec
     // add local time zone offset
     // get UTC time in msec
-    var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+    let utc = d.getTime() + (d.getTimezoneOffset() * 60000);
 
     // create new Date object for different city
     // using supplied offset
-    var nd = new Date(utc + (3600000*offset));
+    let nd = new Date(utc + (3600000*offset));
     return nd;
+}
+
+function randomInteger(min, max) {
+    let rand = min + Math.random() * (max + 1 - min);
+    rand = Math.floor(rand);
+    return rand;
 }

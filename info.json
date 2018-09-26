@@ -2,19 +2,19 @@
   "main": [
     {
       "name": "Отжимания :muscle:",
-      "value": 19
+      "value": 10
     },
     {
       "name": "Приседания :smiley:",
-      "value": 19
+      "value": 10
     },
     {
       "name": "Прыжки :ok_hand:",
-      "value": 9
+      "value": 7
     },
     {
       "name": "Прыжки на одной ноге :stuck_out_tongue_closed_eyes:",
-      "value": 4
+      "value": 5
     }
   ]
 }
